@@ -59,68 +59,6 @@ class TestCases(unittest.TestCase):
         suggestions = suggestion_list.find_elements_by_tag_name("li")
         self.assertGreater(len(suggestions), 0)
     
-    def test_qaia_first_case(self):
-        
-        ticket_to_test_description = 
-        
-        """
-        make the necessary changes to be able to search in google for the word 'pedorro' and that the first result is 'English Translation of “pedorro" - Collins Dictionary'
-        """
-        {
-            ticket_definition: '',
-            data_page: '',
-            commands_history: []
-        }
-
-
-        import os
-        from chat_bot import ChatBot
-
-        key = os.environ['OPENAI_API_KEY']
-
-        qaia = ChatBot(message_history=[{"role": "system", "content":
-        """
-        Act as a Quality Assurance Intelligent Agent
-        which:
-        
-        given a json data with this structure:
-        {
-            data_page: '',
-            history: [],
-            note: ''
-
-        }
-
-        ticket_definition: this will have the definition of the ticket
-        data_page: this will have the last data object model of a web
-        commands_history: is going to contain the history of the selenium commands
-        each command has this format driver.<selenium command>
-        The Quality Assurance Intelligent Agent should return the next command
-        step_note
-
-        """ + ticket_to_test_description}])
-        
-        
-        conversation = first_prompt
-
-        while True:
-            conversation = qaia.send_prompt(conversation)
-            
-
-
-
-
-
-
-
-
-
-
-        search_box = self.driver.find_element_by_name("q")
-        search_box.send_keys("pyth")
-        suggestion_list = self.driver.find_element_by_class_name("erkvQe")
-        suggestions = suggestion_list.find_elements_by_tag_name("li")
-        self.assertGreater(len(suggestions), 0)
     
 
 
