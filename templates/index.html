@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Available Test Cases</title>
+  </head>
+  <body>
+    <h1>Available Test Cases</h1>
+    <ul>
+      {% for name in test_cases %}
+        <li><a href="/run_test_case?name={{ name }}">{{ name }}</a></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
