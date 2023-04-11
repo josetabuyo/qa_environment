@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 import unittest
-from TestCases import TestCases
+from tests.test_google_page import TestCases
 import io, os
 import sys
 

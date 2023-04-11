@@ -3,7 +3,6 @@ docker container ls
 docker rm -f qa-web-service-pod
 
 
-
 docker build -t qa-web-service -f Dockerfile.web .
 docker run --name qa-web-service-pod -p 8080:8080 qa-web-service
 
@@ -15,4 +14,5 @@ docker run --name qa-regression-pod qa-regression
 http://192.168.0.229:8080
 http://192.168.0.229:8080/run_test_case?name=test_search_suggestions
 
-
+#Run localy
+nose2 test_google_page.TestCases.test_qaia_first_case
