@@ -48,12 +48,6 @@ class RpaJobs():
     
     def rpa_get_coupons_from_seg_api(self):
         """ call to get all the coupons from the seg api """
-
-        self.seg_api = seg_api()
-        coupons = self.seg_api.get_seg_coupons()
-        
-        print(self.seg_api.dump(coupons))
-        
         # self.api = api()
         
         # self.email = "testcacho@test.com"
@@ -76,8 +70,6 @@ class RpaJobs():
 
     def rpa_set_redeem_points_balance(self):
         """ This automation set the redeem points balance"""
-        self.seg_api = seg_api()
-
         self.seg_api.set_redeem_points_balance(
             wallet_id = 27557398,
             member_id = "SEG0000005247455",
@@ -90,17 +82,6 @@ class RpaJobs():
     def rpa_create_an_order_by_api(self):
         """ This automation create an order by the api"""
 
-        self.api = api()
-        
-        self.email = "testcacho@test.com"
-        self.password = "asdfgh"
-        self.auth_token = self.api.user_login(self.email, self.password)
-        
-        order_id, _ = self.api.add_items_to_cart(self.auth_token,
-			location_id = 4185,
-			product_ids = [77612, 83431],
-			quantity = 3
-		)
         
     # def rpa_set_provider_in_qaPod4(self):
     #     """ This automation adds SEGCoupon provider info to the database"""
