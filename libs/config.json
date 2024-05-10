@@ -1,0 +1,6 @@
+{
+	"chrome_path_docker": "/usr/local/bin/chrome-linux64/chrome",
+    "chromedriver_path_docker": "/usr/local/bin/chromedriver-linux64/chromedriver",
+	"chrome_path_local": "/usr/local/bin/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "chromedriver_path_local": "/usr/local/bin/chromedriver-mac-arm64/chromedriver"
+}

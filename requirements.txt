@@ -1,6 +1,6 @@
 unittest2==1.1.0
 Flask==2.2.3
-selenium==4.0.0
+selenium==4.20.0
 Appium-Python-Client
 click==8.1.3
 itsdangerous==2.1.2
@@ -10,3 +10,7 @@ Werkzeug==2.2.3
 webdriver-manager
 pyvirtualdisplay
 nose2
+requests
+debugpy
+pytest
+urllib3==1.26.7

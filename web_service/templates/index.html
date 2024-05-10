@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/robot-face.svg') }}">
+    
+    <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/loading-bar.css') }}" rel="stylesheet">
+    
+    <title>Automation Tools</title>
+  </head>
+  <body>
+    <div>
+      <img id="branding_logo" src="{{ url_for('static', filename='img/robot-face.svg') }}" alt="Mercatus"/>
+    </div>
+    <h1>Automation Tools</h1>
+    <h2>QA Cases</h2>
+    
+    {% for class in test_cases %}
+      <h3>{{ class }}</h3>
+      <ul>
+        {% for test in test_cases[class] %}
+          <li>
+            <a href="/run_test_case?name={{ test.name }}&class={{ test.class }}">{{ test.name }}</a>
+            <br/>
+            <span>{{ test.doc }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+    <h2>RPA Jobs</h2>
+    <ul>
+      {% for rpa in rpa_jobs %}
+        <li>
+          <a href="/run_rpa?name={{ rpa.name }}">{{ rpa.name }}</a>
+          <br/>
+          <span>{{ rpa.doc }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
