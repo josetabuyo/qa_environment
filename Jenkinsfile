@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("run qa regression tests") {
             agent {
-                dockerfile {
+                docker {
                     filename 'Dockerfile.reg'
                     dir 'regression'
                     label 'qa-regression'
