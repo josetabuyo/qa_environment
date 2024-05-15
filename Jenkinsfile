@@ -20,7 +20,7 @@ pipeline {
                     filename 'Dockerfile.reg'
                     dir '.'
                     additionalBuildArgs  '--platform linux/amd64 -t qa-regression'
-                    args '--platform linux/amd64 --add-host localhost:127.0.0.1 --name qa-regression-pod qa-regression'
+                    args '--platform linux/amd64 --add-host localhost:127.0.0.1 --name qa-regression-pod qa-regression -v /$PWD:/$PWD'
                 }
             }
             steps {
