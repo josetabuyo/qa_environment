@@ -13,7 +13,9 @@ pipeline {
             //         args '-v /tmp:/tmp'
             //     }
             // }
-
+            environment {
+                HOME="."
+            }
             // docker build --platform linux/amd64 -t qa-regression -f Dockerfile.reg .
             agent {
                 dockerfile {
