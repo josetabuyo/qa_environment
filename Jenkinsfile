@@ -20,8 +20,8 @@ pipeline {
             agent {
                 dockerfile {
                     filename 'Dockerfile.reg'
-                    additionalBuildArgs  '--platform linux/amd64 -it qa-regression'
-                    args ' -it --platform linux/amd64 --add-host localhost:127.0.0.1 qa-regression /bin/sh'
+                    additionalBuildArgs  '--platform linux/amd64 -t qa-regression'
+                    args '-it --platform linux/amd64 --add-host localhost:127.0.0.1 qa-regression /bin/sh'
                 }
             }
             steps {
