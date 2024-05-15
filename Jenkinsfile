@@ -25,7 +25,7 @@ pipeline {
                 }
             }
             steps {
-                sh "cat output/qa_regression_result.html"
+                sh "echo HolaGuacho"
                 
             }
         }
