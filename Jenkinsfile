@@ -1,5 +1,8 @@
 pipeline {
-    agent none
+    // Assign to docker agent(s) label, could also be 'any'
+    agent {
+        label 'docker' 
+    }
     stages {
         stage("run qa regression tests ssssssss") {
             //  // Equivalent to "docker build -f Dockerfile.reg --build-arg version=1.0.2 ./build/
@@ -18,6 +21,7 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile.reg'
                     dir '.'
+                    label 'docker'
                     additionalBuildArgs  '--platform linux/amd64 -t qa-regression'
                     args '--platform linux/amd64 --add-host localhost:127.0.0.1 --name qa-regression-pod qa-regression'
                 }
