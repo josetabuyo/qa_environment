@@ -6,6 +6,8 @@ pipeline {
             agent any
             steps {
                 sh "echo HolaGuacho"
+                sh "docker build --platform linux/amd64 -t qa-regression -f Dockerfile.reg ."
+                sh "docker run --platform linux/amd64 --add-host localhost:127.0.0.1 --name qa-regression-pod qa-regression"
             }
         }
 
