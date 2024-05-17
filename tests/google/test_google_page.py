@@ -21,6 +21,9 @@ from libs.tools import tools
 from pom.google import GooglePage
 from pom.google.results import ResultsPage
 
+import random
+import string
+
 
 class test_google_page(unittest.TestCase):
 
@@ -37,6 +40,25 @@ class test_google_page(unittest.TestCase):
 
     def test_not_web_scrapping_example(self):
         """ Dummy test to show that the tests are running"""
+        def create_file_with_random_word():
+            # Generate a random word
+            random_word = ''.join(random.choice(string.ascii_lowercase) for _ in range(10))
+            
+            # Get the root path of the project
+            project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+            
+            # Create the file path
+            file_path = os.path.join(project_root, 'random_word.txt')
+            
+            # Write the random word to the file
+            with open(file_path, 'w') as file:
+                file.write(random_word)
+            
+            return file_path
+
+        # Call the function to create the file
+        file_path = create_file_with_random_word()
+        print(f"File created at: {file_path}")
 
         self.assertIsNotNone(True)
 
