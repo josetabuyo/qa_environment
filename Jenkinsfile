@@ -5,10 +5,11 @@ pipeline {
         stage("dumy stage") {
             agent any
             steps {
-                sh "echo HolaGuachoneque"
                 sh "docker build --platform linux/amd64 -t qa-regression -f Dockerfile.reg ."
                 sh "docker run -v /Users/josetabuyo/Development/experiments/qa_environment/output:/app/output --platform linux/amd64 --add-host localhost:127.0.0.1 qa-regression"
                 sh "ls -trola output"
+                sh "pwd"
+                
             }
         }
 

@@ -48,7 +48,7 @@ class test_google_page(unittest.TestCase):
             project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
             
             # Create the file path
-            file_path = os.path.join(project_root, 'random_word.txt')
+            file_path = os.path.join(project_root, 'output/random_word.txt')
             
             # Write the random word to the file
             with open(file_path, 'w') as file:

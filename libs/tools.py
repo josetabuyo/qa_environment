@@ -43,9 +43,7 @@ class Tools:
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--test-type")
         
-        
-        service_log_path = "chromedriver.log"
-        service_args = ['--verbose']
+        service_log_path = "output/chromedriver.log"
         
         current_dir = os.getcwd()
         
@@ -65,7 +63,7 @@ class Tools:
         
         chrome_options.binary_location = chrome_path
 
-        driver = EnrichedDriver(
+        driver = EnrichedChromeDriver(
             service = Service(chromedriver_path, log_path = service_log_path),
             options = chrome_options
         )
@@ -75,7 +73,7 @@ class Tools:
 tools = Tools.get_instance()
 
 
-class EnrichedDriver(webdriver.Chrome):
+class EnrichedChromeDriver(webdriver.Chrome):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 

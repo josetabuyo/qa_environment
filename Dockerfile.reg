@@ -40,5 +40,5 @@ RUN pip3 install -r requirements.txt
 # set display port to avoid crash
 ENV DISPLAY=:99
 
-CMD ["nose2", "-c", "suites/suite_google.cfg"]
+CMD ["/usr/bin/bash", "run_regression.sh"]
 
