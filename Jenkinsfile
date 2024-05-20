@@ -14,7 +14,7 @@ pipeline {
                         allowMissing: false,
                         alwaysLinkToLastBuild: true,
                         keepAll: true,
-                        reportDir: 'output',
+                        reportDir: '/Users/josetabuyo/Development/experiments/qa_environment/output',
                         reportFiles: 'qa_regression_result.html'
                     ]
                 )    
