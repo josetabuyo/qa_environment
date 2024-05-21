@@ -9,15 +9,6 @@ pipeline {
                 sh "docker run -v /Users/josetabuyo/Development/experiments/qa_environment/output:/app/output --platform linux/amd64 --add-host localhost:127.0.0.1 qa-regression"
                 sh "ls -trola output"
                 sh "pwd"
-                publishHTML (
-                    target : [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: true,
-                        keepAll: true,
-                        reportDir: '/Users/josetabuyo/Development/experiments/qa_environment/output',
-                        reportFiles: 'qa_regression_result.html'
-                    ]
-                )    
             }
         }
         
