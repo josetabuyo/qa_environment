@@ -59,15 +59,14 @@ class test_google_page(unittest.TestCase):
 
         # Call the function to create the file
         logger = logging.getLogger(__name__)
+        logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
         
-        logger.info("INFO info INFOINFOINFOINFOINFO")
-        logger.debug("INFO debug INFOINFOINFOINFOINFO")
-        
-        logging.info("DEBUG info DEBUGDEBUGDEBUGDEBUGDEBUG")
-        logging.debug("DEBUG debug DEBUGDEBUGDEBUGDEBUGDEBUG")
-        logging.error("DEBUG error DEBUGDEBUGDEBUGDEBUGDEBUG")
-        logging.warning("DEBUG warning DEBUGDEBUGDEBUGDEBUGDEBUG")
+        logger.info("DEBUG info INFOINFOINFOINFOINFO")
+        logger.debug("DEBUG debug INFOINFOINFOINFOINFO")
 
+        logger.log("DEBUG log pelao INFOINFOINFOINFOINFO")
+        
+        
         file_path = create_file_with_random_word()
         print(f"File created: {file_path}")
 
