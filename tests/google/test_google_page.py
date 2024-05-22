@@ -1,4 +1,5 @@
 import unittest
+import logging
 from selenium import webdriver
 # from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as Options
@@ -57,8 +58,18 @@ class test_google_page(unittest.TestCase):
             return file_path
 
         # Call the function to create the file
+        logger = logging.getLogger(__name__)
+        
+        logger.info("INFO info INFOINFOINFOINFOINFO")
+        logger.debug("INFO debug INFOINFOINFOINFOINFO")
+        
+        logging.info("DEBUG info DEBUGDEBUGDEBUGDEBUGDEBUG")
+        logging.debug("DEBUG debug DEBUGDEBUGDEBUGDEBUGDEBUG")
+        logging.error("DEBUG error DEBUGDEBUGDEBUGDEBUGDEBUG")
+        logging.warning("DEBUG warning DEBUGDEBUGDEBUGDEBUGDEBUG")
+
         file_path = create_file_with_random_word()
-        print(f"File created at: {file_path}")
+        print(f"File created: {file_path}")
 
         self.assertIsNotNone(True)
 
