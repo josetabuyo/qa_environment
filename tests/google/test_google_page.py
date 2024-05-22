@@ -59,7 +59,7 @@ class test_google_page(unittest.TestCase):
 
         # Call the function to create the file
         logger = logging.getLogger(__name__)
-        logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+        logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='output/'+__name__+'.log')
         
         logger.info("DEBUG info INFOINFOINFOINFOINFO")
         logger.debug("DEBUG debug INFOINFOINFOINFOINFO")
