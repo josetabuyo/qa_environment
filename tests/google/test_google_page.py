@@ -13,6 +13,7 @@ from selenium.webdriver.remote.webelement import WebElement
 import nose2
 import os
 import sys
+import allure
 
 #  Add project root to sys.path
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -29,7 +30,22 @@ import string
 class test_google_page(unittest.TestCase):
 
     def setUp(self):
-        pass
+        
+        log_filename = 'output/'+__name__+'.log'
+
+        # Remove the log file if it exists
+        if os.path.exists(log_filename):
+            os.remove(log_filename)
+
+        logging.basicConfig(
+            format='%(asctime)s - %(levelname)s - %(name)s - %(filename)s - %(funcName)s - %(lineno)d:  %(message)s',
+            level=logging.NOTSET,
+            filename=log_filename,
+            force=True
+        )
+
+        self.logger = logging.getLogger(__name__)
+    
 
     driver = False
 
@@ -39,6 +55,16 @@ class test_google_page(unittest.TestCase):
         if self.driver:
             self.driver.quit()
 
+    
+
+    @allure.title("Test Authentication")
+    @allure.description("This test attempts to log into the website using a login and a password. Fails if any error happens.\n\nNote that this test does not test 2-Factor Authentication.")
+    @allure.tag("NewUI", "Essentials", "Authentication")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.label("owner", "John Doe")
+    @allure.link("https://dev.example.com/", name="Website")
+    @allure.issue("AUTH-123")
+    @allure.testcase("TMS-456")
     def test_not_web_scrapping_example(self):
         """ Dummy test to show that the tests are running"""
         def create_file_with_random_word():
@@ -57,20 +83,18 @@ class test_google_page(unittest.TestCase):
             
             return file_path
 
-        # Call the function to create the file
-        logger = logging.getLogger(__name__)
-        logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, filename='output/'+__name__+'.log')
-        
-        logger.info("DEBUG info INFOINFOINFOINFOINFO")
-        logger.debug("DEBUG debug INFOINFOINFOINFOINFO")
-
-        logger.log("DEBUG log pelao INFOINFOINFOINFOINFO")
+        self.logger.debug("debug DEBUG")
+        self.logger.info("info DEBUG")
+        self.logger.warning("warning DEBUG")
+        self.logger.error("error DEBUG")
         
         
         file_path = create_file_with_random_word()
         print(f"File created: {file_path}")
 
-        self.assertIsNotNone(True)
+        self.assertIsNotNone(file_path != "", "File created")
+        
+        return
 
     def test_search_for_terms(self):
         """ Test that a search for "python" returns results """
